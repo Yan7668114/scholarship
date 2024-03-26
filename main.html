@@ -20,14 +20,38 @@
             <input type="text" id="studentID" name="studentID" required>
         </div>
         <div>
-            <label>系所別（年級）：</label>
-            <input type="text" id="departmentAndGrade" name="departmentAndGrade" required>
+            <label for="departmentAndGrade">系所別（年級）：</label>
+            <select id="departmentAndGrade" name="departmentAndGrade" required>
+                <option value="">請選擇年級</option>
+                <option value="大一">大一</option>
+                <option value="大二">大二</option>
+                <option value="大三">大三</option>
+                <option value="大四">大四</option>
+                <option value="碩一">碩一</option>
+                <option value="碩二">碩二</option>
+                <option value="碩三">碩三</option>
+                <option value="碩四">碩四</option>
+            </select>
         </div>
         <div>
-            <label>導師（簽章）：</label>
-            <input type="text" id="advisorSignature" name="advisorSignature" required>
-        </div>
-
+            <label for="advisorSignature">導師（簽章）：</label>
+            <select id="advisorSignature" name="advisorSignature" required>
+                <option value="">請選擇導師</option>
+                <option value="姜美玲">姜美玲</option>
+                <option value="戴榮賦">戴榮賦</option>
+                <option value="陳彥錚">陳彥錚</option>
+                <option value="黃俊哲">黃俊哲</option>
+                <option value="白炳豐">白炳豐</option>
+                <option value="簡宏宇">簡宏宇</option>
+                <option value="游子宜">游子宜</option>
+                <option value="余菁蓉">余菁蓉</option>
+                <option value="王育民">王育民</option>
+                <option value="洪嘉良">洪嘉良</option>
+                <option value="陳小芬">陳小芬</option>
+                <option value="陳建宏">陳建宏</option>
+                <option value="鄭育評">鄭育評</option>
+            </select>
+        </div>  
         <h2>申請項目及說明</h2>
         <div>
             <input type="checkbox" id="competitionAward" name="applicationItem" value="competitionAward">
@@ -138,8 +162,11 @@
             <input type="checkbox" id="otherOption" name="applicationItem" value="other">
             <label for="otherOption">其他：</label>
             <input type="text" id="otherOptionText" name="otherOptionText">
-        </div>        
-        <!-- 可以在此處繼續添加其他申請項目 zxcvbnm-->
+            <br>
+            <label for="otherOptionFile">附件上傳：</label>
+            <input type="file" id="otherOptionFile" name="otherOptionFile">
+        </div>
+        <!-- 可以在此處繼續添加其他申請項目-->
         <br>
         <fieldset>
             <div>
@@ -158,13 +185,17 @@
 
             <h2>學生事務委員會審核結果</h2>
             <div>
-                <input type="checkbox" id="passed" name="committeeReview" value="passed">
-                <label for="passed">經</label>
-                <input type="number" id="passedTimes" name="passedTimes" min="1" style="width: 50px;">次通過，核發獎學金
-                <input type="number" id="scholarshipAmount" name="scholarshipAmount" style="width: 100px;">元
+                <h2>學生事務委員會審核結果</h2>
+                <input type="radio" id="passed" name="committeeReview" value="passed" onclick="togglePassedDate(true)">
+                <label for="passed">通過</label>
+                <input type="number" id="passedTimes" name="passedTimes" min="1" style="width: 50px;" required>次通過，核發獎學金
+                <input type="number" id="scholarshipAmount" name="scholarshipAmount" style="width: 100px;" required>元
+                <br>
+                <label for="passedDate" style="display:none;">通過日期：</label>
+                <input type="date" id="passedDate" name="passedDate" style="display:none;">
             </div>
             <div>
-                <input type="checkbox" id="notPassed" name="committeeReview" value="notPassed">
+                <input type="radio" id="notPassed" name="committeeReview" value="notPassed" onclick="togglePassedDate(false)">
                 <label for="notPassed">未通過</label>
             </div>
             <div>

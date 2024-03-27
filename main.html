@@ -5,9 +5,10 @@
     <title>國立暨南國際大學資管系獎學金申請表</title>
 </head>
 <body>
-    <h1>國立暨南國際大學資管系獎學金申請表</h1>
-    <form id="scholarshipForm">
-        <div>
+    <h1 align="center">國立暨南國際大學資管系獎學金申請表</h1>
+    <form id="scholarshipForm" >
+        <fieldset>
+        <div >
             <label>申請日期：</label>
             <input type="date" id="applicationDate" name="applicationDate" required>
         </div>
@@ -51,7 +52,9 @@
                 <option value="陳建宏">陳建宏</option>
                 <option value="鄭育評">鄭育評</option>
             </select>
-        </div>  
+        </div>
+        <br>
+        <hr>
         <h2>申請項目及說明</h2>
         <div>
             <input type="checkbox" id="competitionAward" name="applicationItem" value="competitionAward">
@@ -163,15 +166,23 @@
             <label for="otherOption">其他：</label>
             <input type="text" id="otherOptionText" name="otherOptionText">
             <br>
+            <br>
             <label for="otherOptionFile">附件上傳：</label>
             <input type="file" id="otherOptionFile" name="otherOptionFile">
         </div>
+    </fieldset>
         <!-- 可以在此處繼續添加其他申請項目-->
         <br>
-        <fieldset>
+        <!-- <hr style="border-style:double; border-width: 2.5px; " > -->
+        <div style="border:2px black solid;">
             <div>
+                <br>
                 <label><strong>系所助理：</strong></label>
-                <input type="text" id="departmentAssistant" name="departmentAssistant" required>
+                <select id="assistant" name="assistant" required>
+                <option value="">請選系所助理</option>
+                <option value="王慈君">王慈君</option>
+                <option value="賴玫旋">賴玫旋</option>
+                </select>
             </div>
 
             <h2>證明文件是否備齊</h2>
@@ -185,7 +196,7 @@
 
             <h2>學生事務委員會審核結果</h2>
             <div>
-                <h2>學生事務委員會審核結果</h2>
+                
                 <input type="radio" id="passed" name="committeeReview" value="passed" onclick="togglePassedDate(true)">
                 <label for="passed">通過</label>
                 <input type="number" id="passedTimes" name="passedTimes" min="1" style="width: 50px;" required>次通過，核發獎學金
@@ -193,16 +204,43 @@
                 <br>
                 <label for="passedDate" style="display:none;">通過日期：</label>
                 <input type="date" id="passedDate" name="passedDate" style="display:none;">
+
+                
+                <blockquote>
+                    <div >
+                    <label>通過日期：</label>
+                    <input type="date" id="passDate" name="passDate" required>
+                    </div>
+                </blockquote>
+                
+                
             </div>
             <div>
                 <input type="radio" id="notPassed" name="committeeReview" value="notPassed" onclick="togglePassedDate(false)">
                 <label for="notPassed">未通過</label>
             </div>
+            <br>
             <div>
-                <label for="noSupportProof">未獲補助證明檔案繳交處：</label>
+                <label for="noSupportProof"> 未獲補助證明檔案繳交處：</label>
                 <input type="file" id="noSupportProof" name="noSupportProof" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
+                
             </div>
-            <div></fieldset>
+            <br>
+            <div>
+            </div>
+        </div>
+
+            
+            <div>
+                <p>
+                    說明：<br>
+                    一、依據「國立暨南國際大學資訊管理學系獎助學金作業要點」辦理。<br>
+                    二、申辦流程：由學生詳填本申請書並檢附相關證明文件，逕送系辦審查資料是否齊全，提交學生事務委員會審核後，由系辦通知申請學生核定結果（獎學金將逕行撥入申請學生帳戶）。<br>
+                    三、獲得本系獎助學金補助者須提供申請事項之詳細資訊，供系上公告與相關宣傳使用。若後續有召開分享會等相關需要，獲補助者需配合辦理。
+
+                </p>
+            </div>    
+            
         
         
 

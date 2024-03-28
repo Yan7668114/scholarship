@@ -13,7 +13,7 @@
             <input type="date" id="applicationDate" name="applicationDate" required>
         </div>
         <div>
-            <label>申請學生（簽章）：</label>
+            <label>申請學生：</label>
             <input type="text" id="studentSignature" name="studentSignature" required>
         </div>
         <div>
@@ -35,7 +35,7 @@
             </select>
         </div>
         <div>
-            <label for="advisorSignature">導師（簽章）：</label>
+            <label for="advisorSignature">導師：</label>
             <select id="advisorSignature" name="advisorSignature" required>
                 <option value="">請選擇導師</option>
                 <option value="姜美玲">姜美玲</option>
@@ -198,12 +198,11 @@
             <div>
                 
                 <input type="radio" id="passed" name="committeeReview" value="passed" onclick="togglePassedDate(true)">
-                <label for="passed">通過</label>
+                <label for="passed">經</label>
                 <input type="number" id="passedTimes" name="passedTimes" min="1" style="width: 50px;" required>次通過，核發獎學金
                 <input type="number" id="scholarshipAmount" name="scholarshipAmount" style="width: 100px;" required>元
                 <br>
-                <label for="passedDate" style="display:none;">通過日期：</label>
-                <input type="date" id="passedDate" name="passedDate" style="display:none;">
+                
 
                 
                 <blockquote>

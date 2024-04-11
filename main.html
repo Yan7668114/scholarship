@@ -10,19 +10,19 @@
         <fieldset>
         <div >
             <label>申請日期：</label>
-            <input type="date" id="applicationDate" name="applicationDate" required>
+            <input type="date" id="application_date" name="application_date" required>
         </div>
         <div>
             <label>申請學生：</label>
-            <input type="text" id="studentSignature" name="studentSignature" required>
+            <input type="text" id="student_name" name="student_name" required>
         </div>
         <div>
             <label>學號：</label>
-            <input type="text" id="studentID" name="studentID" required>
+            <input type="text" id="student_number" name="student_number" required>
         </div>
         <div>
-            <label for="departmentAndGrade">系所別（年級）：</label>
-            <select id="departmentAndGrade" name="departmentAndGrade" required>
+            <label for="department_and_grade">系所別（年級）：</label>
+            <select id="department_and_grade" name="department_and_grade" required>
                 <option value="">請選擇年級</option>
                 <option value="大一">大一</option>
                 <option value="大二">大二</option>
@@ -35,8 +35,8 @@
             </select>
         </div>
         <div>
-            <label for="advisorSignature">導師：</label>
-            <select id="advisorSignature" name="advisorSignature" required>
+            <label for="advisor_name">導師：</label>
+            <select id="advisor_name" name="advisor_name" required>
                 <option value="">請選擇導師</option>
                 <option value="姜美玲">姜美玲</option>
                 <option value="戴榮賦">戴榮賦</option>
@@ -178,7 +178,7 @@
             <div>
                 <br>
                 <label><strong>系所助理：</strong></label>
-                <select id="assistant" name="assistant" required>
+                <select id="assistant_name" name="assistant_name" required>
                 <option value="">請選系所助理</option>
                 <option value="王慈君">王慈君</option>
                 <option value="賴玫旋">賴玫旋</option>
@@ -197,7 +197,7 @@
             <h2>學生事務委員會審核結果</h2>
             <div>
                 
-                <input type="radio" id="passed" name="committeeReview" value="passed" onclick="togglePassedDate(true)">
+                <input type="radio" id="passed" name="committee_review" value="passed" onclick="togglePassedDate(true)">
                 <label for="passed">經</label>
                 <input type="number" id="passedTimes" name="passedTimes" min="1" style="width: 50px;" required>次通過，核發獎學金
                 <input type="number" id="scholarshipAmount" name="scholarshipAmount" style="width: 100px;" required>元
@@ -208,7 +208,7 @@
                 <blockquote>
                     <div >
                     <label>通過日期：</label>
-                    <input type="date" id="passDate" name="passDate" required>
+                    <input type="date" id="passed_date" name="passed_date" required>
                     </div>
                 </blockquote>
                 

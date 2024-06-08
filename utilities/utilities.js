@@ -8,7 +8,7 @@ const pool = db.createPool({
     host : 'localhost',
     user : 'test',
     password : '123',
-    database : 'test'
+    database : 'scholarship'
 });
 
 // global variable
@@ -19,6 +19,7 @@ module.exports = {
     jwt_key,
 
     // shared function
+
     signJwtToken: function(data) {
         try {
             const result = jwt.sign({ data, exp: Math.floor(Date.now() / 1000) + (60 * 15) }, jwt_key);

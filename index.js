@@ -2,27 +2,30 @@
 const express = require('express');
 const db = require('./db')
 const app = express();
-// const bodyParser = require("body-parser");
-// const cookieParser = require('cookie-parser');
-// const server = require('http').Server(app);
+const bodyParser = require("body-parser");
+const cookieParser = require('cookie-parser');
+const server = require('http').Server(app);
 
 // //bodyParser: 解析 HTTP 請求的 body
-// app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: false }));
 // //express.json: 處理 JSON 資料
-// app.use(express.json());
-// app.use(cookieParser()); //解析 HTTP 請求的 cookie
+app.use(express.json());
+app.use(cookieParser()); //解析 HTTP 請求的 cookie
 
 // // routing
 // // pages
++app.use("/example", require("./pages/example.js"));
 // app.use("/main", require("./pages/main.js"));
 // app.use("/login", require("./pages/login.js"));
 // app.use("/apply", require("./pages/apply.js"));
 
 // // api
 // app.use("/api/login", require("./api/login.js"));
+app.use("/api/example", require("./api/example.js"));
+
 // // static files
-// app.use('/js', express.static('./js'));
-// app.use('/css', express.static('./css'));
+app.use('/js', express.static('./js'));
+app.use('/css', express.static('./css'));
 
 // server.listen(5000, function () {
 //     console.log('Node server is running..');

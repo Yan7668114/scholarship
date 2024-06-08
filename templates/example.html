@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<link href="/css/login.css" rel="stylesheet">
+	<head>
+		<title>範例-申請表</title>
+	</head>
+	<body>
+        <div id = "student_info_part">
+            <span>Student Name : </span>
+            <span id = "student_name">Test Student</span>
+            <br/>
+            <span>Student Id : </span>
+            <span id = "student_id">110213077</span>
+        </div>
+        <table id="info_tab" border="1">
+            <tr>
+                <td>項目內容</td>
+                <td>是否申請</td>
+            </tr>
+        </table>
+        <button onclick="sendApplyData()">送出申請</button>
+	</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+	<script src = "/js/example.js"></script>
+</html>

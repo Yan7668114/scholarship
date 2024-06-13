@@ -6,7 +6,7 @@ const db = require("mysql");
 const pool = db.createPool({
     connectionLimit : 500,
     host : 'localhost',
-    user : 'root',
+    user : 'user',
     password : '',
     database : 'scholarship'
 });

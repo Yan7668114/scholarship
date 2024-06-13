@@ -1,292 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <link href="/css/main.css" rel="stylesheet">
-    <script src = "/js/main.js"></script>
-    <title>Main Page</title>
-    <head>
-	<meta charset="utf-8">
-	<title>國立暨南國際大學資管系獎學金申請表</title>
-    </head>
-    <body>
-		<h1 align="center">國立暨南國際大學資管系獎學金申請表</h1>
-		<form id="scholarshipForm" >
-			<fieldset>
-			<div >
-				<label>申請日期：</label>
-				<input type="date" id="application_date" name="application_date" required>
-			</div>
-			<div>
-				<label>申請學生：</label>
-				<input type="text" id="student_name" name="student_name" required>
-			</div>
-			<div>
-				<label>學號：</label>
-				<input type="text" id="student_number" name="student_number" required>
-			</div>
-			<div>
-				<label for="department_and_grade">系所別（年級）：</label>
-				<select id="department_and_grade" name="department_and_grade" required>
-					<option value="">請選擇年級</option>
-					<option value="大一">大一</option>
-					<option value="大二">大二</option>
-					<option value="大三">大三</option>
-					<option value="大四">大四</option>
-					<option value="碩一">碩一</option>
-					<option value="碩二">碩二</option>
-					<option value="碩三">碩三</option>
-					<option value="碩四">碩四</option>
-				</select>
-			</div>
-			<div>
-				<label for="advisor_name">導師：</label>
-				<select id="advisor_name" name="advisor_name" required>
-					<option value="">請選擇導師</option>
-					<option value="姜美玲">姜美玲</option>
-					<option value="戴榮賦">戴榮賦</option>
-					<option value="陳彥錚">陳彥錚</option>
-					<option value="黃俊哲">黃俊哲</option>
-					<option value="白炳豐">白炳豐</option>
-					<option value="簡宏宇">簡宏宇</option>
-					<option value="游子宜">游子宜</option>
-					<option value="余菁蓉">余菁蓉</option>
-					<option value="王育民">王育民</option>
-					<option value="洪嘉良">洪嘉良</option>
-					<option value="陳小芬">陳小芬</option>
-					<option value="陳建宏">陳建宏</option>
-					<option value="鄭育評">鄭育評</option>
-				</select>
-			</div>
+	<!-- <link href="/css/??.css" rel="stylesheet"> -->
+	<head>
+		<title>國立暨南國際大學資管系獎學金申請表</title>
+	</head>
+	<body>
+        <h1 align="center">國立暨南國際大學資管系獎學金申請表</h1>
+        <fieldset>
+
+			<div id="student">
+                <div>
+                    <label>學生姓名：</label>
+                    <input type="text" id="student_name" name="student_name" required>
+                </div>
+                <div>
+                    <label>學號：</label>
+                    <input type="text" id="student_id" name="student_id" required>
+                </div>
+                <div>
+                    <label for="department_and_grade">系所別（年級）：</label>
+                    <select id="department_and_grade" name="department_and_grade" required>
+                        <option value="">請選擇年級</option>
+                        <option value="大一">大一</option>
+                        <option value="大二">大二</option>
+                        <option value="大三">大三</option>
+                        <option value="大四">大四</option>
+                        <option value="碩一">碩一</option>
+                        <option value="碩二">碩二</option>
+                        <option value="碩三">碩三</option>
+                        <option value="碩四">碩四</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="advisor_name">導師：</label>
+                    <select id="advisor_name" name="advisor_name" required>
+                        <option value="">請選擇導師</option>
+                        <option value="姜美玲">姜美玲</option>
+                        <option value="戴榮賦">戴榮賦</option>
+                        <option value="陳彥錚">陳彥錚</option>
+                        <option value="黃俊哲">黃俊哲</option>
+                        <option value="白炳豐">白炳豐</option>
+                        <option value="簡宏宇">簡宏宇</option>
+                        <option value="游子宜">游子宜</option>
+                        <option value="余菁蓉">余菁蓉</option>
+                        <option value="王育民">王育民</option>
+                        <option value="洪嘉良">洪嘉良</option>
+                        <option value="陳小芬">陳小芬</option>
+                        <option value="陳建宏">陳建宏</option>
+                        <option value="鄭育評">鄭育評</option>
+                    </select>
+                </div>
+            </div>
 			<br>
 			<hr>
 			<h2>申請項目及說明</h2>
-			<div>
-				<input type="checkbox" id="competitionAward" name="applicationItem" value="competitionAward">
-				<label for="competitionAward">參加校內、外（含國內、國際性）資管領域相關專業或學術性重要比賽得獎者</label>
-			</div>
-			<div>
-				<input type="checkbox" id="internationalConference" name="applicationItem" value="internationalConference">
-				<label for="internationalConference">參加國際性學術研討會或國際性會議並以外文發表論文者（不含摘要及海報論文）</label>
-			</div>
-			<blockquote><div>
-				<input type="checkbox" id="internalSupportApplied" name="supportApplied" value="internalSupportApplied">
-				<label for="internalSupportApplied">已向校內申請補助，申請單位：</label>
-				<input type="text" id="internalSupportUnit" name="internalSupportUnit">
-				<label>已獲補助額度：NT$</label>
-				<input type="number" id="internalSupportAmount" name="internalSupportAmount">
-			</div>
-			<div>
-				<input type="checkbox" id="externalSupportApplied" name="supportApplied" value="externalSupportApplied">
-				<label for="externalSupportApplied">已向校外申請補助，申請單位：</label>
-				<input type="text" id="externalSupportUnit" name="externalSupportUnit">
-				<label>已獲補助額度：NT$</label>
-				<input type="number" id="externalSupportAmount" name="externalSupportAmount">
-			</div>
-			<div>
-				<input type="checkbox" id="internalSupportAppliedNotGranted" name="supportApplied" value="internalSupportAppliedNotGranted">
-				<label for="internalSupportAppliedNotGranted">已向校內申請補助，申請單位：</label>
-				<input type="text" id="internalSupportUnitNotGranted" name="internalSupportUnitNotGranted">
-				<label>但未獲補助（若勾選此，請檢附未獲補助證明）</label>
-			</div>
-			<div>
-				<input type="checkbox" id="externalSupportAppliedNotGranted" name="supportApplied" value="externalSupportAppliedNotGranted">
-				<label for="externalSupportAppliedNotGranted">已向校外申請補助，申請單位：</label>
-				<input type="text" id="externalSupportUnitNotGranted" name="externalSupportUnitNotGranted">
-				<label>但未獲補助（若勾選此，請檢附未獲補助證明）</label>
-			</div>
-			<div>
-				<input type="checkbox" id="noSupportApplied" name="supportApplied" value="noSupportApplied">
-				<label for="noSupportApplied">未向校內外單位申請補助</label></blockquote>
-			
-			</div>        
-			<div>
-				<input type="checkbox" id="promoteDepartment" name="applicationItem" value="promoteDepartment">
-				<label for="promoteDepartment">促進本系招生、聲譽提升、協助教學或行政工作等有具體事蹟者</label>
-			</div>
-			<div>
-				<input type="checkbox" id="masterThesisInEnglish" name="applicationItem" value="masterThesisInEnglish">
-				<label for="masterThesisInEnglish">碩士畢業生學位口試以英文發表者</label>
-			</div>
-			<div>
-				<input type="checkbox" id="bestPaperAward" name="applicationItem" value="bestPaperAward">
-				<label for="bestPaperAward">參加資管領域相關學術研討會並榮獲最佳論文獎</label>
-			</div>
-			<div>
-				<input type="checkbox" id="nationalScienceCouncilAward" name="applicationItem" value="nationalScienceCouncilAward">
-				<label for="nationalScienceCouncilAward">獲得「國科會大專學生研究計畫獎勵」者</label>
-			</div>
-			<div>
-				<input type="checkbox" id="internationalExchangeStudent" name="applicationItem" value="internationalExchangeStudent">
-				<label for="internationalExchangeStudent">學生申請國際交換生</label>
-			</div>
-			<blockquote><div>
-				<input type="checkbox" id="internalSupportApplied" name="supportApplied" value="internalSupportApplied">
-				<label for="internalSupportApplied">已向校內申請補助，申請單位：</label>
-				<input type="text" id="internalSupportUnit" name="internalSupportUnit">
-				<label>已獲補助額度：NT$</label>
-				<input type="number" id="internalSupportAmount" name="internalSupportAmount">
-			</div>
-			<div>
-				<input type="checkbox" id="externalSupportApplied" name="supportApplied" value="externalSupportApplied">
-				<label for="externalSupportApplied">已向校外申請補助，申請單位：</label>
-				<input type="text" id="externalSupportUnit" name="externalSupportUnit">
-				<label>已獲補助額度：NT$</label>
-				<input type="number" id="externalSupportAmount" name="externalSupportAmount">
-			</div>
-			<div>
-				<input type="checkbox" id="internalSupportAppliedNotGranted" name="supportApplied" value="internalSupportAppliedNotGranted">
-				<label for="internalSupportAppliedNotGranted">已向校內申請補助，申請單位：</label>
-				<input type="text" id="internalSupportUnitNotGranted" name="internalSupportUnitNotGranted">
-				<label>但未獲補助（若勾選此，請檢附未獲補助證明）</label>
-			</div>
-			<div>
-				<input type="checkbox" id="externalSupportAppliedNotGranted" name="supportApplied" value="externalSupportAppliedNotGranted">
-				<label for="externalSupportAppliedNotGranted">已向校外申請補助，申請單位：</label>
-				<input type="text" id="externalSupportUnitNotGranted" name="externalSupportUnitNotGranted">
-				<label>但未獲補助（若勾選此，請檢附未獲補助證明）</label>
-			</div>
-			<div>
-				<input type="checkbox" id="noSupportApplied" name="supportApplied" value="noSupportApplied">
-				<label for="noSupportApplied">未向校內外單位申請補助</label>
-			</div></blockquote>        
-			<div>
-				<input type="checkbox" id="undergraduateToMaster" name="applicationItem" value="undergraduateToMaster">
-				<label for="undergraduateToMaster">本系大學部學生報考本系碩士班經甄試或考試正取者</label>
-			</div>
-			<div>
-				<input type="checkbox" id="academicConferenceAward" name="applicationItem" value="academicConferenceAward">
-				<label for="academicConferenceAward">參加國內學術研討會發表論文並獲獎者</label>
-			</div>
-			<div>
-				<input type="checkbox" id="externalCompetitionTravelGrant" name="applicationItem" value="externalCompetitionTravelGrant">
-				<label for="externalCompetitionTravelGrant">學生參加校外學術性比賽之交通費補助</label>
-			</div>
-			<div>
-				<input type="checkbox" id="certificationAchievement" name="applicationItem" value="certificationAchievement">
-				<label for="certificationAchievement">在學學生考取TOEFL iBT 100分（含）以上、IELTS 7分（含）以上或日文N1、GRE 320分（含）以上（或同等證照證明）</label>
-			</div>
-			<div>
-				<input type="checkbox" id="otherOption" name="applicationItem" value="other">
-				<label for="otherOption">其他：</label>
-				<input type="text" id="otherOptionText" name="otherOptionText">
-				<br>
-				<br>
-				<label for="otherOptionFile">附件上傳：</label>
-				<input type="file" id="otherOptionFile" name="otherOptionFile">
-			</div>
-		</fieldset>
-			<!-- 可以在此處繼續添加其他申請項目-->
-			<br>
-			<!-- <hr style="border-style:double; border-width: 2.5px; " > -->
-			<div style="border:2px black solid;">
-				<div>
-					<br>
-					<label><strong>系所助理：</strong></label>
-					<select id="assistant_name" name="assistant_name" required>
-					<option value="">請選系所助理</option>
-					<option value="王慈君">王慈君</option>
-					<option value="賴玫旋">賴玫旋</option>
-					</select>
-				</div>
-	
-				<h2>證明文件是否備齊</h2>
-			<div>
-				<input type="radio" id="documentsReadyYes" name="documentsReady" value="yes">
-				<label for="documentsReadyYes">是</label>
-				<input type="radio" id="documentsReadyNo" name="documentsReady" value="no">
-				<label for="documentsReadyNo">否，尚須補繳：</label>
-				<input type="text" id="documentsMissing" name="documentsMissing">
-			</div>
-	
-				<h2>學生事務委員會審核結果</h2>
-				<div>
-					
-					<input type="radio" id="passed" name="committee_review" value="passed" onclick="togglePassedDate(true)">
-					<label for="passed">經</label>
-					<input type="number" id="passedTimes" name="passedTimes" min="1" style="width: 50px;" required>次通過，核發獎學金
-					<input type="number" id="scholarshipAmount" name="scholarshipAmount" style="width: 100px;" required>元
-					<br>
-					
-	
-					
-					<blockquote>
-						<div >
-						<label>通過日期：</label>
-						<input type="date" id="passed_date" name="passed_date" required>
-						</div>
-					</blockquote>
-					
-					
-				</div>
-				<div>
-					<input type="radio" id="notPassed" name="committeeReview" value="notPassed" onclick="togglePassedDate(false)">
-					<label for="notPassed">未通過</label>
-				</div>
-				<br>
-				<div>
-					<label for="noSupportProof"> 未獲補助證明檔案繳交處：</label>
-					<input type="file" id="noSupportProof" name="noSupportProof" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
-					
-				</div>
-				<br>
-				<div>
-				</div>
-			</div>
-	
-				
-				<div>
-					<p>
-						說明：<br>
-						一、依據「國立暨南國際大學資訊管理學系獎助學金作業要點」辦理。<br>
-						二、申辦流程：由學生詳填本申請書並檢附相關證明文件，逕送系辦審查資料是否齊全，提交學生事務委員會審核後，由系辦通知申請學生核定結果（獎學金將逕行撥入申請學生帳戶）。<br>
-						三、獲得本系獎助學金補助者須提供申請事項之詳細資訊，供系上公告與相關宣傳使用。若後續有召開分享會等相關需要，獲補助者需配合辦理。
-	
-					</p>
-				</div>    
-				
-			
-			
-	
-			
-	
-				<br>
-				<input type="submit" value="提交申請">
-			</div>
-			<form id="scholarshipForm" method="post" enctype="multipart/form-data">
-				<!--  若表單須通過http post方式提交至伺服器，並且包括文件上傳需使用(from)這段程式碼-->
-			</form>
-			
-	
-			<div id="submittedData" style="display: none;">
-				<!--  -->
-			</div>
-		</form>
-	
-		
-	
-		<script>
-			document.getElementById('scholarshipForm').onsubmit = function(event) {
-				event.preventDefault(); // Prevent the default form submission behavior
-	
-				// Collect form data
-				var formData = new FormData(this);
-	
-				// Convert form data to readable text format
-				var formContent = '';
-				for (var pair of formData.entries()) {
-					formContent += pair[0] + ': ' + pair[1] + '<br>';
-				}
-	
-				// Open a new window to display the form content
-				var newWindow = window.open();
-				newWindow.document.write('<h1>國立暨南國際大學資管系獎學金申請內容</h1>' + formContent);
-				newWindow.document.close();
-	
-				// Reset the form fields
-				this.reset();
-			};
-		</script>
-		
+        <table id="info_item" border="1">
+            <tr>
+                <td>是否申請</td>
+                <td>項目內容</td>
+            </tr>
+        </table>
+        <button onclick="sendApplyData()">送出申請</button>
 	</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+	<script src = "/js/main.js"></script>
 </html>
-
-

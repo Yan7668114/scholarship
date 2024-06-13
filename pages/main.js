@@ -1,5 +1,6 @@
 const router = require('express').Router();
-const util = require("./../utilities/utilities.js");
+const { error } = require('console');
+const util = require("./../utilities/utilities_main.js");
 
 // processing request
 router.get('/', async function(req, res) {
@@ -8,6 +9,7 @@ router.get('/', async function(req, res) {
     }
     catch(e) {
         console.log(e);
+        res.json({error_msg : "failed to access the file"});
     }
     return;
 });

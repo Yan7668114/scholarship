@@ -15,14 +15,14 @@ app.use(cookieParser()); //解析 HTTP 請求的 cookie
 // // routing
 // // pages
 +app.use("/example", require("./pages/example.js"));
-// app.use("/main", require("./pages/main.js"));
++app.use("/main", require("./pages/main.js"));
 // app.use("/login", require("./pages/login.js"));
 // app.use("/apply", require("./pages/apply.js"));
 
 // // api
 // app.use("/api/login", require("./api/login.js"));
 app.use("/api/example", require("./api/example.js"));
-
+app.use("/api/main", require("./api/main.js"));
 // // static files
 app.use('/js', express.static('./js'));
 app.use('/css', express.static('./css'));

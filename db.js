@@ -23,13 +23,13 @@ module.exports = connection;
 
 // require module
 const jwt = require('jsonwebtoken');
-const db = require("mysql");
+const db = require("mariadb");
 
 // create pool
 const pool = db.createPool({
     connectionLimit : 500,
     host : 'localhost',
-    user : 'root',
+    user : 'user',
     password : '',
     database : 'scholarship'
 });

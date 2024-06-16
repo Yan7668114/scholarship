@@ -8,7 +8,7 @@ router.get("/", async function(req, res) {
         let conn;
 	    try {
 	    	conn = await util.getDBConnection(); // get connection from db
-	    	const query = `          //語法有問題
+	    	const query = `          
             SELECT           
                 item_form.application_id, 
                 item_form.item_info_id, 
@@ -20,7 +20,7 @@ router.get("/", async function(req, res) {
             FROM 
                 item_form
             RIGHT JOIN 
-                scholarship_application ON item_form.application_id = scholarship_application.application_id;
+                scholarship_application ON item_form.application_id = scholarship_application.application_id
             RIGHT JOIN 
                 student ON scholarship_application.student_id = student.student_id;
         `;

@@ -16,13 +16,15 @@ app.use(cookieParser()); //解析 HTTP 請求的 cookie
 // // pages
 +app.use("/example", require("./pages/example.js"));
 +app.use("/main", require("./pages/main.js"));
-// app.use("/login", require("./pages/login.js"));
-// app.use("/apply", require("./pages/apply.js"));
++app.use("/login", require("./pages/login.js"));
++app.use("/apply", require("./pages/apply.js"));
++app.use("/audit", require("./pages/audit.js"));
 
 // // api
-// app.use("/api/login", require("./api/login.js"));
+app.use("/api/login", require("./api/login.js"));
 app.use("/api/example", require("./api/example.js"));
 app.use("/api/main", require("./api/main.js"));
+app.use("/api/audit", require("./api/audit.js"));
 // // static files
 app.use('/js', express.static('./js'));
 app.use('/css', express.static('./css'));
@@ -48,70 +50,9 @@ app.get('/', (req, res) => {
     console.log(`Example app listening at http://localhost:${port}`)
   })
 
-// // 設定 view engine
-// app.set('view engine', 'ejs')
 
 
-// // 建立 todos data
-// const todos = [
-//     'first todo', 'second todo', 'third todo'
-//   ]
-  
-// app.get('/todos', (req, res) => {
-//     // 第二個參數可傳入資料
-//     res.render('todos', {
-//       todos     // todos: todos 一樣的話可省略寫法
-//     })
-// })
-
-// // 加上 :id 代表不確定的參數
-// app.get('/todos/:id', (req, res) => {
-//     // params: 可拿到網址列上指定的參數
-//     const id = req.params.id
-//     const todo = todos[id]
-//     res.render('todo', {
-//       todo
-//     })
-// })
-
-// app.get('/', (req, res) => {
-//   //res.send('index')
-// })
-
-// app.get('/main.ejs', (req, res) => {
-// // 叫 express 去 render views 底下叫做 hello 的檔案，副檔名可省略
-//   //res.render('hello')
-// })
-
-// app.listen(port, () => {
-//   console.log(`listening at http://localhost:${port}`)
-// })
 
 
-// // 引入 controller
-// const todoController = require('./controllers/todo')
-
-// app.set('view engine', 'ejs')
-
-// const todos = [
-//   'first todo', 'second todo', 'third todo'
-// ]
-
-// // 可直接使用 controller 的方法拿取資料和進行 render
-// app.get('/todos', todoController.getAll)
-
-// app.get('/todos/:id',)
 
 
-// const todoController = require('./controllers/todo')
-
-// app.set('view engine', 'ejs')
-
-// app.get('/todos',)
-// app.get('/todos/:id', todoController.get)
-
-// app.listen(port, () => {
-//   // 連線資料庫
-//   db.connect()
-//   console.log(`Example app listening at http://localhost:${port}`)
-// })

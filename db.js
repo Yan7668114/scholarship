@@ -27,7 +27,7 @@ const db = require("mariadb");
 
 // create pool
 const pool = db.createPool({
-    connectionLimit : 500,
+    connectionLimit : 10,
     host : 'localhost',
     user : 'user',
     password : '',

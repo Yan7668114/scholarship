@@ -8,8 +8,24 @@ router.get("/", async function(req, res) {
         let conn;
 	    try {
 	    	conn = await util.getDBConnection(); // get connection from db
-	    	const result = await conn.query("SELECT item_content FROM item_info;");
-            res.json(result);
+	    	const query = `          //語法有問題
+            SELECT           
+                item_form.application_id, 
+                item_form.item_info_id, 
+                item_form.application_unit, 
+                item_form.subsidy,
+                scholarship_application.application_date,
+                scholarship_application.student_id, 
+                student.student_name    
+            FROM 
+                item_form
+            RIGHT JOIN 
+                scholarship_application ON item_form.application_id = scholarship_application.application_id;
+            RIGHT JOIN 
+                student ON scholarship_application.student_id = student.student_id;
+        `;
+        const result = await conn.query(query);
+        res.json({ success: true, data: result });
 	    }
 	    catch(e) {
             console.error(e);
@@ -33,22 +49,19 @@ router.post("/", async function(req, res) {
             const apply_infos = req.body.apply_infos; // get data from request
             const time = moment(new Date()).format("YYYY-MM-DD");
 
-            if (!student_id) {
-                throw new Error("Student ID is missing in the request body.");
+            if (!assistant_id) {
+                throw new Error("Assistant ID is missing in the request body.");
             }   
 
 	    	conn = await util.getDBConnection(); // get connection from db
             await conn.beginTransaction();
 
             // insert data into table : scholarship_application
-            const scholarship_application_info = await conn.batch("INSERT INTO scholarship_application(`application_date`, `student_id`) VALUES(?, ?);", [time, req.body.student_id]);
-            const scholarship_application_id = scholarship_application_info.insertId; // get the application_id of previous record
+            const scholarship_audit_info = await conn.batch("INSERT INTO audit_form(``, ``) VALUES(?, ?);", [time, req.body.student_id]);
+            const scholarship_audit_id = scholarship_audit_info.insertId; // get the application_id of previous record
             
-            // 這邊你們要再改
-            // const application_unit = "test unit"; 
-            // const subsidy = 1000;
 
-            console.log(scholarship_application_info.insertId);
+            console.log(scholarship_audit_info.insertId);
             console.log(apply_infos);
             
             // insert each apply item into item_form

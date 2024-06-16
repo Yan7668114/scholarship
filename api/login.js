@@ -1,6 +1,6 @@
 // Required modules
 const router = require('express').Router();
-const util = require("./../utilities/utilities.js");
+const util = require("./../utilities/utilities_main.js");
 const jwt = require('jsonwebtoken');
 
 router.post("/", async function(req, res) {

@@ -23,24 +23,36 @@ async function putDataInTable(table_id) {
         for (let i = 0; i < data.length; i++) {
             if (i === 2 || i === 3 || i === 10 || i === 11) {
                 table_content += `
-                    <tr>
+                    <blockquote>
                         <td><input type='checkbox' id='checkbox_${i}'/></td>
                         <td>${data[i].item_content}</td>
-                        <td><div>申請單位:</div><input type='text' id='unit_${i}'/></td>
-                        <td><div>獲得補助金額:</div><input type='number' id='subsidy_${i}'/></td>
-                    </tr>`;
+                        ，申請單位:</div><input type='text' id='unit_${i}'/>
+                        <td>獲得補助金額：NT$</div><input type='number' id='subsidy_${i}'/></td>
+                    </blockquote>`;
             } else if (i === 4 || i === 5 || i === 12 || i === 13) {
                 table_content += `
                     <tr>
                         <td><input type='checkbox' id='checkbox_${i}'/></td>
                         <td>${data[i].item_content}</td>
-                        <td><div>申請單位:</div><input type='text' id='unit_${i}'/></td>
+                        <td>，申請單位:</div><input type='text' id='unit_${i}'/></td>
+                        <br>
                     </tr>`;
-            } else {
+            } else if(i===data.length-1){
                 table_content += `
                     <tr>
                         <td><input type='checkbox' id='checkbox_${i}'/></td>
                         <td>${data[i].item_content}</td>
+                        <td></div><input type='text' id='else_${i}'/></td>
+                        <br>
+                        <br>
+                    </tr>`;
+            } 
+            else {
+                table_content += `
+                    <tr>
+                        <td><input type='checkbox' id='checkbox_${i}'/></td>
+                        <td>${data[i].item_content}</td>
+                        <br>
                     </tr>`;
             }
         }
@@ -55,17 +67,17 @@ async function putDataInTable(table_id) {
     }
 }
 
-// async function setStudentName() {
-//     // get student name, and show on page
-//     document.getElementById("student_name").innerHTML = "test";
-// }
+async function setStudentName() {
+    // get student name, and show on page
+    document.getElementById("student_name").innerHTML = "test";
+}
 
 async function sendApplyData() {
     // get student name
-    const student_name = document.getElementById("student_name").innerHTML;
-    const student_id = document.getElementById("student_id").innerHTML;
-    const department_and_grade = document.getElementById("department_and_grade").innerHTML;
-    const advisor_name = document.getElementById("advisor_name").innerHTML;
+    const student_name = document.getElementById("student_name").value;
+    const student_id = document.getElementById("student_id").value;
+    const department_and_grade = document.getElementById("department_and_grade").value;
+    const advisor_name = document.getElementById("advisor_name").value;
     // get checked infos
     let apply_infos = [];
     let application_units = [];

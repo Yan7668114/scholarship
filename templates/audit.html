@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<link href="/css/audit.css" rel="stylesheet">
+	<head>
+		<title>國立暨南國際大學資管系獎學金審核表</title>
+	</head>
+	<body>
+        <h1 align="center">國立暨南國際大學資管系獎學金審核表</h1>
+        
+
+			<div id="assistant">
+                <div>
+                    <label>系所助理：</label>   
+                    <select id="assistant_name" name="assistant_name" required>
+                        <option value="">請選系所助理</option>
+                        <option value="王慈君">王慈君</option>
+                        <option value="賴玫旋">賴玫旋</option>
+                    </select>
+                </div>
+            <br>
+            <div>
+                <label>選擇要審核的學號</label>
+                    <select id="student_id_select">
+                        <option value="">請選擇</option>
+                    </select>
+            </div>
+            <br>
+        <fieldset>
+            <h2 align="center">申請資料</h2>
+        </fieldset>
+        <br>
+        <fieldset>
+            <h2 align="center">審核區</h2>
+        <form id="audit_item" border="1">
+                
+            
+        </form></fieldset>
+	</body>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/axios.min.js"></script>
+	<script src = "/js/audit.js"></script>
+</html>

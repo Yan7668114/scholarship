@@ -97,8 +97,8 @@ CREATE TABLE `item_form` (
   `item_id` int(4) NOT NULL,
   `application_id` int(4) NOT NULL,
   `item_info_id` int(4) NOT NULL,
-  `application_unit` varchar(50) NOT NULL,
-  `subsidy` int(4) NOT NULL
+  `application_unit` varchar(50) NULL,
+  `subsidy` int(4) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -159,7 +159,7 @@ CREATE TABLE `student` (
   `student_id` varchar(9) NOT NULL COMMENT '學號',
   `departmant_and_grade` varchar(10) NOT NULL COMMENT '系級',
   `student_name` varchar(20) NOT NULL COMMENT '學生姓名',
-  `advisor_id` int(4) NOT NULL
+  `advisor_id` int(4) NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --

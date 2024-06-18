@@ -10,12 +10,7 @@
 
 			<div id="assistant">
                 <div>
-                    <label>系所助理：</label>   
-                    <select id="assistant_name" name="assistant_name" required>
-                        <option value="">請選系所助理</option>
-                        <option value="王慈君">王慈君</option>
-                        <option value="賴玫旋">賴玫旋</option>
-                    </select>
+                    <label>系所助理：<span id="assistant_name"></span></label>   
                 </div>
             <br>
             <div>
@@ -26,11 +21,80 @@
             </div>
             <br>
         <fieldset>
-            <h2 align="center">申請資料</h2>
+            <table border="1">
+                <tr>
+                    <td>
+                        <h2 align="center">申請資料</h2>
+                        <table id="application_table" border="1">
+                            <tr>
+                                <td>申請編號</td>
+                                <td>申請日期</td>
+                                <td>申請人學號</td>
+                                <td>申請人姓名</td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td>
+                        <h2 align="center">申請詳細資訊</h2>
+                        <div id="application_info"></div>
+                        <table id="application_detail" border="1">
+
+                        </table>
+                    </td>
+                    <td>
+                        <h2 align="center">申請審核</h2>
+                        <h3>證明文件是否備齊</h3>
+                        <div>
+                            <label>
+                            <input type="radio"  id="checkbox_yes_${i}" value="yes"/> 是
+                            </label>
+                            <label>
+                            <input type="radio"  id="checkbox_no_${i}" value="no"/> 否
+                            </label>
+                            ，尚須補繳：<input type="text" id="unit_${i}"/>
+                        </div>
+                
+                    <h2>學生事務委員會審核結果</h2>
+                            <div>
+                                
+                                <input type="radio" id="passed" value="passed">
+                                <label >經</label>
+                                會議名稱("學期-次數"):<input type="text" id="passedTimes" style="width: 50px;">，核發獎學金
+                                <input type="number" id="scholarshipAmount" style="width: 100px;">元
+                                <br>
+                                
+                
+                                
+                                <blockquote>
+                                    <div >
+                                    <label>通過日期：</label>
+                                    <input type="date" id="passed_date">
+                                    </div>
+                                </blockquote>
+                                
+                                
+                            </div>
+                            <div>
+                                <input type="radio" id="notPassed" value="notPassed">
+                                <label>未通過</label>
+                            </div>
+                            <br>
+                            <div>
+                                <label for="noSupportProof"> 未獲補助證明檔案繳交處：</label>
+                                <input type="file" id="noSupportProof" accept=".pdf, .doc, .docx, .jpg, .jpeg, .png">
+                                
+                            </div>
+                            <br></br>
+                            <button onclick="sendReviewResult()">送出審核結果</button>
+                    </td>
+                </tr>
+            </table>
         </fieldset>
         <br>
         <fieldset>
             <h2 align="center">審核區</h2>
+            <table id="audit_table" border="1">
+            </table>
         <form id="audit_item" border="1">
                 
             

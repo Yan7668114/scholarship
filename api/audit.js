@@ -8,10 +8,9 @@ router.get("/", async function(req, res) {
         let conn;
 	    try {
 	    	conn = await util.getDBConnection(); // get connection from db
-	    	const query = `          //語法有問題
-            SELECT           
-                item_form.application_id, 
-                item_form.item_info_id, 
+	    	const query = 
+            `
+            SELECT item_form.application_id, item_form.item_info_id, item_info.item_content,
                 item_form.application_unit, 
                 item_form.subsidy,
                 scholarship_application.application_date,
@@ -20,12 +19,15 @@ router.get("/", async function(req, res) {
             FROM 
                 item_form
             RIGHT JOIN 
-                scholarship_application ON item_form.application_id = scholarship_application.application_id;
-            RIGHT JOIN 
-                student ON scholarship_application.student_id = student.student_id;
-        `;
-        const result = await conn.query(query);
-        res.json({ success: true, data: result });
+                scholarship_application ON item_form.application_id = scholarship_application.application_id
+            LEFT JOIN 
+                student ON scholarship_application.student_id = student.student_id
+            LEFT JOIN
+                item_info ON item_form.item_info_id = item_info.item_info_id
+            ;
+            `;
+            const result = await conn.query(query);
+            res.json({ success: true, data: result });
 	    }
 	    catch(e) {
             console.error(e);

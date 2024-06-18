@@ -74,8 +74,8 @@ async function setStudentName() {
 
 async function sendApplyData() {
     // get student name
-    const student_name = document.getElementById("student_name").value;
-    const student_id = document.getElementById("student_id").value;
+    const student_name = document.getElementById("student_name").innerHTML;
+    const student_id = document.getElementById("student_id").innerHTML;
     const department_and_grade = document.getElementById("department_and_grade").value;
     const advisor_name = document.getElementById("advisor_name").value;
     // get checked infos
@@ -101,9 +101,20 @@ async function sendApplyData() {
         application_units,
         subsidy_amounts
     };
+    console.log(data);
     // send data
     let result = await axios.post('/api/main', data);
     console.log(result);
 }
 
+function setUserInfo() {
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    const s_num = urlParams.get("s_num");
+    const name = urlParams.get("name");
+    document.getElementById("student_id").innerHTML = s_num;
+    document.getElementById("student_name").innerHTML = name;
+}
+
+setUserInfo();
 putDataInTable("info_item");

@@ -4,10 +4,10 @@ const db = require("mariadb");
 
 // create pool
 const pool = db.createPool({
-    connectionLimit : 500,
+    connectionLimit : 50,
     host : 'localhost',
-    user : 'root',
-    password : '',
+    user : 'test',
+    password : '123',
     database : 'scholarship'
 });
 

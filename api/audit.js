@@ -8,16 +8,9 @@ router.get("/", async function(req, res) {
         let conn;
 	    try {
 	    	conn = await util.getDBConnection(); // get connection from db
-<<<<<<< HEAD
-	    	const query = `          
-            SELECT           
-                item_form.application_id, 
-                item_form.item_info_id, 
-=======
 	    	const query = 
             `
             SELECT item_form.application_id, item_form.item_info_id, item_info.item_content,
->>>>>>> 4e70160c94fd9e085e7a88cae6638beb2998fb45
                 item_form.application_unit, 
                 item_form.subsidy,
                 scholarship_application.application_date,
@@ -27,13 +20,6 @@ router.get("/", async function(req, res) {
                 item_form
             RIGHT JOIN 
                 scholarship_application ON item_form.application_id = scholarship_application.application_id
-<<<<<<< HEAD
-            RIGHT JOIN 
-                student ON scholarship_application.student_id = student.student_id;
-        `;
-        const result = await conn.query(query);
-        res.json({ success: true, data: result });
-=======
             LEFT JOIN 
                 student ON scholarship_application.student_id = student.student_id
             LEFT JOIN
@@ -42,7 +28,6 @@ router.get("/", async function(req, res) {
             `;
             const result = await conn.query(query);
             res.json({ success: true, data: result });
->>>>>>> 4e70160c94fd9e085e7a88cae6638beb2998fb45
 	    }
 	    catch(e) {
             console.error(e);

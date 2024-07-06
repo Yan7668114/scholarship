@@ -3,6 +3,8 @@ let item_info_len = 0;
 let all_audit_data = null;
 let current_review_apllication_id;
 const application_detail_init_table_content = document.getElementById("application_detail").innerHTML;
+let assistant_s_num;
+let assistant_name;
 
 async function getItemInfo() {
     // get the data from table : item_info
@@ -175,9 +177,9 @@ async function setAssistantName() {
     // get student name, and show on page
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
-    const s_num = urlParams.get("s_num");
-    const name = urlParams.get("name");
-    document.getElementById("assistant_name").innerHTML = name;
+    assistant_s_num = urlParams.get("s_num");
+    assistant_name = urlParams.get("name");
+    document.getElementById("assistant_name").innerHTML = assistant_name;
 }
 
 async function sendApplyData() {
@@ -215,7 +217,32 @@ async function sendApplyData() {
 async function sendReviewResult() {
     // send current review result of the application
     console.log(`send current review result of the application ${current_review_apllication_id}`);
+    let data = {assistant_s_num, "application_id" : current_review_apllication_id};
+
     // 你們這邊要將編號為 current_review_apllication_id 的審核表的資料送去後端處理
+    const doc_missing = document.getElementById("doc_checkbox_no").checked;
+
+    if (doc_missing) {
+        data["documents_ready"] = document.getElementById("missing_docs").value;
+    }
+    
+    const is_passed = document.getElementById("passed").checked;
+    data["committee_review"] = is_passed;
+    if (is_passed) {
+        data["meeting_name"] = document.getElementById("passedTimes").value;
+        data["scholarship_amount"] = document.getElementById("scholarshipAmount").value;
+        data["passed_date"] = document.getElementById("passed_date").value;
+    }
+
+    console.log(data);
+    const result = await axios.post("/api/audit", data);
+    if (result.data.suc) {
+        alert("審核成功！");
+    }
+    else {
+        alert("審核失敗！", result.data.msg);
+    }
+    window.location.reload();
 }
 
 setAssistantName();

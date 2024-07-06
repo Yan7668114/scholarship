@@ -46,18 +46,18 @@
                         <h3>證明文件是否備齊</h3>
                         <div>
                             <label>
-                            <input type="radio"  id="checkbox_yes_${i}" value="yes"/> 是
+                            <input type="radio" name="doc_checkbox"  id="doc_checkbox_yes"/> 是
                             </label>
                             <label>
-                            <input type="radio"  id="checkbox_no_${i}" value="no"/> 否
+                            <input type="radio" name="doc_checkbox"  id="doc_checkbox_no"/> 否
                             </label>
-                            ，尚須補繳：<input type="text" id="unit_${i}"/>
+                            ，尚須補繳：<input type="text" id="missing_docs"/>
                         </div>
                 
                     <h2>學生事務委員會審核結果</h2>
                             <div>
                                 
-                                <input type="radio" id="passed" value="passed">
+                                <input type="radio" name="passed" id="passed">
                                 <label >經</label>
                                 會議名稱("學期-次數"):<input type="text" id="passedTimes" style="width: 50px;">，核發獎學金
                                 <input type="number" id="scholarshipAmount" style="width: 100px;">元
@@ -75,7 +75,7 @@
                                 
                             </div>
                             <div>
-                                <input type="radio" id="notPassed" value="notPassed">
+                                <input type="radio" name="passed" id="notPassed">
                                 <label>未通過</label>
                             </div>
                             <br>

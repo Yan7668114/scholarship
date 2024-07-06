@@ -44,32 +44,21 @@ router.get("/", async function(req, res) {
 
 router.post("/", async function(req, res) {
     try {
+        if (req.body.assistant_s_num.length >= 9) {
+            return res.json({suc : false, msg : "invalid credentials"})
+        }
         let conn;
 	    try {
             console.log(req.body);
-            // data
-            const apply_infos = req.body.apply_infos; // get data from request
+            // check the user is assitant
             const time = moment(new Date()).format("YYYY-MM-DD");
-
-            if (!assistant_id) {
-                throw new Error("Assistant ID is missing in the request body.");
-            }   
 
 	    	conn = await util.getDBConnection(); // get connection from db
             await conn.beginTransaction();
 
             // insert data into table : scholarship_application
-            const scholarship_audit_info = await conn.batch("INSERT INTO audit_form(``, ``) VALUES(?, ?);", [time, req.body.student_id]);
-            const scholarship_audit_id = scholarship_audit_info.insertId; // get the application_id of previous record
-            
-
-            console.log(scholarship_audit_info.insertId);
-            console.log(apply_infos);
-            
-            // insert each apply item into item_form
-            for (let i = 0;i < apply_infos.length;i++) {
-                await conn.batch("INSERT INTO item_form(`application_id`, `item_info_id`, `application_unit`, `subsidy`) VALUES(?, ?, ?, ?);", [scholarship_application_id, apply_infos[i], application_unit, subsidy]);
-            }
+            const data = [req.body.assistant_s_num, req.body.application_id, req.body.documents_ready, req.body.committee_review, req.body.meeting_name, req.body.passed_date, req.body.scholarship_amount];
+            const scholarship_audit_info = await conn.batch("INSERT INTO audit_form(`assistant_id`, `application_id`, `documents_ready`, `committee_review`, `meeting_name`, `passed_date`, `scholarship_amount`) VALUES(?, ?, ?, ?, ?, ?, ?);", data);
             await conn.commit();
 
             res.json({suc : true});

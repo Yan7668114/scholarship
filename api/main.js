@@ -51,6 +51,7 @@ router.post("/", async function(req, res) {
             if (!stu_existed[0]["COUNT(*)"]) {
                 await conn.batch("INSERT INTO student VALUES(?, ?, ?, ?);", [student_id, department_and_grade, student_name, advisor_id]);
             }
+            
             // insert data into table : scholarship_application
             const scholarship_application_info = await conn.batch("INSERT INTO scholarship_application(`application_date`, `student_id`) VALUES(?, ?);", [time, student_id]);
             const scholarship_application_id = scholarship_application_info.insertId; // get the application_id of previous record
